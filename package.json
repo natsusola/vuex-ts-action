@@ -10,8 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/natsusola/vuex-ts-action.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Natsu",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/natsusola/vuex-ts-action/issues"
   },

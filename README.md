@@ -1,28 +1,25 @@
 # vuex-ts-action
-
-Make vuex action context typed.
+Make vuex action context typed.  
 Give you suggestions and type checking when you use action context.
 
 ## Example
----
-**suggest mutation/action type**
+**suggest mutation/action type**  
 ![](assets/m1.jpg)
 
-**suggest mutation/action parameter**
-If mutation/action doesn't need payload, please pass `undefined`.
+**suggest mutation/action parameter**  
+If mutation/action doesn't need payload, please pass `undefined`.  
 ![](assets/m2.jpg)
 
-**alert when calling unexisted mutation/action**
+**alert when calling unexisted mutation/action**  
 ![](assets/m3.jpg)
 
-**call root mutation/action**
-no suggestions and type checking
+**call root mutation/action**  
+no suggestions and type checking  
 ![](assets/m4.jpg)
 
 ## Usage
----
 ```ts
-import { TActionContext } from '../src';
+import { TActionContext } from 'vuex-ts-action';
 
 const state = {
   name: 'user1',
@@ -60,8 +57,25 @@ const actions = {
 };
 ```
 
+**TActionContext**  
+```ts
+export interface TActionContext<
+  M extends MutationTree<S>,
+  A extends ActionTree<S, any> = any,
+  S = any,
+  G = any,
+  RG = any,
+> {
+  state: S;
+  rootState: any;
+  commit: Commit<M>;
+  dispatch: Dispatch<A>;
+  getters: G;
+  rootGetters: RG;
+}
+```
+
 ## Notice
----
 - Doesn't support `ActionObject`.
 
 - Your can use this plugin with [vuex-tstore](https://github.com/stevethedev/vuex-tstore) or [vuex-ts-enhance](https://github.com/zWingz/vuex-ts-enhance) to get suggestions and type checking in components without changing the structure of vuex store.

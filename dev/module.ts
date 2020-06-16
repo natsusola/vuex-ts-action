@@ -14,7 +14,7 @@ const mutations = {
   updateAge(state: State, age: number) {
     state.age = age;
   },
-}
+};
 
 // cannot use ActionTree
 type TActionCtx = TActionContext<typeof mutations, typeof actions>;
@@ -28,11 +28,11 @@ const actions = {
     ctx.commit('updateAge', payload.age);
   },
   patchUser(ctx: TActionCtx, payload: { name: string, age: number }) {
-    ctx.dispatch('patchName', { name: payload.name});
+    ctx.dispatch('patchName', { name: payload.name });
     ctx.dispatch('patchAge', { age: payload.age });
 
     ctx.dispatch('rootAction', 'any', { root: true }); // no suggestion and type checking
-  }
+  },
 };
 
 export const module = {
