@@ -2,7 +2,7 @@ import { TActionContext } from '../src';
 
 const state = {
   name: 'user1',
-  age: 18,
+  age: 20,
 };
 type State = typeof state;
 
@@ -33,4 +33,11 @@ const actions = {
 
     ctx.dispatch('rootAction', 'any', { root: true }); // no suggestion and type checking
   }
+};
+
+export const module = {
+  namespaced: true,
+  state,
+  mutations,
+  actions,
 };
